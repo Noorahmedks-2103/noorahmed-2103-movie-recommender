@@ -1,27 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>MovieFlix 🎬</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MovieFlix Recommender</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="hero">
-        <h1>🎬 MovieFlix</h1>
-        <p>Discover movies you’ll love!</p>
-        <button id="toggleTheme">Toggle Dark/Light</button>
-    </header>
+  <header class="hero">
+    <h1>🎬 MovieFlix</h1>
+    <p>Discover movies you'll love!</p>
+    <button id="toggleTheme">Toggle Dark/Light Mode</button>
+  </header>
 
-    <section class="search-section">
-        <input type="text" id="movie-input" placeholder="Enter a movie you like" autocomplete="off">
-        <ul id="suggestions"></ul>
-    </section>
+  <section class="search-section">
+    <form id="searchForm" autocomplete="off">
+      <input type="text" id="movieInput" placeholder="Enter a movie you like" required>
+      <button type="submit">Get Recommendations</button>
+    </form>
+    <ul id="suggestions" class="suggestions-list"></ul>
+  </section>
 
-    <section class="recommendations">
-        <ul id="movie-grid" class="movie-grid"></ul>
-    </section>
+  <section class="recommendations">
+    <h2 id="recommendTitle">Recommended Movies:</h2>
+    <ul id="movieGrid" class="movie-grid"></ul>
+  </section>
 
-    <script src="movies.js"></script>
-    <script src="script.js"></script>
+  <script src="movies.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
