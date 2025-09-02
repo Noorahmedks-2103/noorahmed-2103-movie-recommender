@@ -9,5 +9,22 @@ const movies = [
   {title: "The Matrix", poster: "https://image.tmdb.org/t/p/w500/aoiiG0WfL4r3cU7l4h0v3KJQpGy.jpg", rating: 8.7, review: "Sci-fi classic with mind-blowing action."},
   {title: "The Empire Strikes Back", poster: "https://image.tmdb.org/t/p/w500/7BuH8itoSrLExs2YZSsM01Qk2no.jpg", rating: 8.7, review: "Star Wars at its best."},
   {title: "The Godfather: Part II", poster: "https://image.tmdb.org/t/p/w500/amvmeQWheahG3StKwIE1f7jRnkZ.jpg", rating: 9.0, review: "A perfect continuation of the classic."},
-  // Add more 40 movies similarly...
+  {title: "The Dark Knight Rises", poster: "https://image.tmdb.org/t/p/w500/zwUp5EwO30bEO6hTOw0llWEpN4H.jpg", rating: 8.4, review: "Epic conclusion to Batman trilogy."},
+  {title: "The Lord of the Rings: The Fellowship of the Ring", poster: "https://image.tmdb.org/t/p/w500/6oom5QYQ2yQTMJIbnvbkBL9cHo6.jpg", rating: 8.8, review: "Magical start to an epic journey."},
+  {title: "The Lord of the Rings: The Two Towers", poster: "https://image.tmdb.org/t/p/w500/rrGlNlzFTrXFNGXsD7NNlxq4BPb.jpg", rating: 8.7, review: "Action-packed middle chapter."},
+  {title: "The Lord of the Rings: The Return of the King", poster: "https://image.tmdb.org/t/p/w500/rCzpDGLbOoPwLjy3OAm5NUPOTrC.jpg", rating: 8.9, review: "Epic, emotional, and unforgettable finale."},
+  {title: "Star Wars: A New Hope", poster: "https://image.tmdb.org/t/p/w500/6FfCtAuVAW8XJjZ7eWeLibRLWTw.jpg", rating: 8.6, review: "Classic space adventure."},
+  {title: "The Silence of the Lambs", poster: "https://image.tmdb.org/t/p/w500/rplLJ2hPcOQmkFhTqUte0MkEaO2.jpg", rating: 8.6, review: "Thrilling psychological masterpiece."},
+  {title: "Se7en", poster: "https://image.tmdb.org/t/p/w500/69Sns8WoET6CfaYlIkHbla4l7nC.jpg", rating: 8.6, review: "Dark, twisted crime thriller."},
+  {title: "The Usual Suspects", poster: "https://image.tmdb.org/t/p/w500/7oWB2aAKRiUciJEC0t4a3f5g7R8.jpg", rating: 8.5, review: "Mind-bending plot and twists."},
+  {title: "The Lion King", poster: "https://image.tmdb.org/t/p/w500/2bXbqYdUdNVa8VIWXVfclP2ICtT.jpg", rating: 8.5, review: "Animated classic, timeless music."},
+  {title: "The Green Mile", poster: "https://image.tmdb.org/t/p/w500/velWPhVMQeQKcxggNEU8YmIo52R.jpg", rating: 8.6, review: "Emotional story of miracles and justice."},
+  {title: "Interstellar", poster: "https://image.tmdb.org/t/p/w500/rAiYTfKGqDCRIIqo664sY9XZIvQ.jpg", rating: 8.6, review: "Spectacular sci-fi adventure."},
+  {title: "The Prestige", poster: "https://image.tmdb.org/t/p/w500/5MXyQfz8xUP3dIFPTubhTsbFY6N.jpg", rating: 8.5, review: "Ingenious story of rivalry and obsession."},
+  {title: "The Departed", poster: "https://image.tmdb.org/t/p/w500/6bn6yXfYd8EdM1vRsQeG65jFZ7K.jpg", rating: 8.5, review: "Tense crime thriller with a stellar cast."},
+  {title: "Gladiator", poster: "https://image.tmdb.org/t/p/w500/ty8TGRuvJLPUmAR1H1nRIsgwvim.jpg", rating: 8.5, review: "Epic story of revenge and honor."},
+  {title: "The Shining", poster: "https://image.tmdb.org/t/p/w500/8uO0gUM8aNqYLs1OsTBQiXu0fEv.jpg", rating: 8.4, review: "Terrifying and visually stunning."},
+  {title: "The Dark Knight Returns", poster: "https://image.tmdb.org/t/p/w500/8exRoHRqAl0h6eB6xqK4OrN6b6d.jpg", rating: 8.4, review: "Iconic Batman comic adaptation."},
+  {title: "The Matrix Reloaded", poster: "https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg", rating: 7.2, review: "Exciting continuation of the saga."},
+  {title: "The Matrix Revolutions", poster: "https://image.tmdb.org/t/p/w500/fgm6OK2GqiJrMgs2J4t2nQf7jrC.jpg", rating: 6.8, review: "Epic conclusion, mixed reviews."}
 ];
