@@ -1,118 +1,59 @@
-body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #111;
-    color: #eee;
-    transition: background-color 0.3s, color 0.3s;
-}
+const movieInput = document.getElementById('movieInput');
+const searchForm = document.getElementById('searchForm');
+const movieGrid = document.getElementById('movieGrid');
+const recommendTitle = document.getElementById('recommendTitle');
+const suggestionsList = document.getElementById('suggestions');
+const toggleBtn = document.getElementById('toggleTheme');
 
-body.light {
-    background-color: #f9f9f9;
-    color: #111;
-}
+// Dark/Light toggle
+toggleBtn.addEventListener('click', () => {
+  document.body.classList.toggle('light');
+});
 
-.hero {
-    text-align: center;
-    padding: 2rem;
-    background: linear-gradient(90deg, #111, #222);
-}
+// Show suggestions while typing
+movieInput.addEventListener('input', () => {
+  const query = movieInput.value.toLowerCase();
+  suggestionsList.innerHTML = '';
+  if(query) {
+    const matched = movies.filter(m => m.title.toLowerCase().includes(query));
+    matched.forEach(m => {
+      const li = document.createElement('li');
+      li.textContent = m.title;
+      li.addEventListener('click', () => {
+        movieInput.value = m.title;
+        suggestionsList.innerHTML = '';
+      });
+      suggestionsList.appendChild(li);
+    });
+  }
+});
 
-body.light .hero {
-    background: linear-gradient(90deg, #eee, #ddd);
-}
+// Handle search & recommend
+searchForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const query = movieInput.value.toLowerCase();
+  const selectedMovie = movies.find(m => m.title.toLowerCase() === query);
 
-.hero h1 {
-    margin: 0;
-    font-size: 3rem;
-}
+  if(!selectedMovie) {
+    alert('Movie not found!');
+    return;
+  }
 
-.hero p {
-    margin-top: 0.5rem;
-    font-size: 1.2rem;
-}
+  recommendTitle.textContent = `Because you liked "${selectedMovie.title}", you might also like:`;
+  movieGrid.innerHTML = '';
 
-#toggleTheme {
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-}
+  // Recommend based on first letter similarity
+  const recommendations = movies.filter(m => m.title !== selectedMovie.title && m.title[0] === selectedMovie.title[0]);
 
-.search-section {
-    text-align: center;
-    margin: 2rem 0;
-    position: relative;
-}
-
-#movie-input {
-    padding: 0.5rem;
-    width: 300px;
-    font-size: 1rem;
-    border-radius: 5px;
-    border: none;
-}
-
-#suggestions {
-    list-style: none;
-    padding: 0;
-    margin: 0.5rem auto;
-    width: 300px;
-    text-align: left;
-    background-color: #222;
-    border-radius: 5px;
-    display: none;
-    position: absolute;
-    z-index: 10;
-}
-
-#suggestions li {
-    padding: 0.5rem;
-    cursor: pointer;
-}
-
-#suggestions li:hover {
-    background-color: #555;
-}
-
-.movie-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 1rem;
-    padding: 1rem;
-}
-
-.movie-card {
-    background-color: #222;
-    border-radius: 10px;
-    overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.movie-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px #ff0000;
-}
-
-.movie-card img {
-    width: 100%;
-    display: block;
-}
-
-.movie-info {
-    padding: 0.5rem;
-}
-
-.movie-info h3 {
-    margin: 0.2rem 0;
-    font-size: 1.1rem;
-}
-
-.movie-info p {
-    font-size: 0.9rem;
-    margin: 0.2rem 0;
-    color: #f0f0f0;
-}
-
-.rating {
-    color: gold;
-    font-weight: bold;
-}
+  recommendations.forEach(m => {
+    const card = document.createElement('li');
+    card.className = 'movie-card';
+    card.innerHTML = `
+      <img src="${m.poster}" alt="${m.title}">
+      <h3>${m.title}</h3>
+      <p>⭐ ${m.rating}</p>
+      <p>${m.review}</p>
+    `;
+    movieGrid.appendChild(card);
+  });
+});
