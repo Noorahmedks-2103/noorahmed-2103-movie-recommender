@@ -1,0 +1,34 @@
+# 🎬 Movie Recommender - Netflix-Style Web App
+
+Welcome to **Movie Recommender**, a Netflix-inspired movie discovery web app!  
+This project allows users to search for movies, get personalized recommendations, and explore ratings and reviews — all with a sleek dark-themed UI.
+
+---
+
+## 🔗 Live Demo
+[Visit the live site](https://noorahmed-2103.github.io/noorahmed-2103-movie-recommender/)
+
+---
+
+## 🚀 Features
+- **Search & Recommend:** Type any movie and get recommendations based on genres and categories.  
+- **Netflix-Style UI:** Sleek, dark-themed, responsive layout with hover effects.  
+- **Movie Posters:** Each movie comes with its official poster.  
+- **Ratings & Reviews:** Quick ratings and brief reviews for each recommended movie.  
+- **Dark/Light Mode Toggle:** Switch themes easily.  
+- **Frontend-Only Deployment:** Powered by HTML, CSS, and JavaScript.  
+- **Ready for Backend:** Can be extended later with Flask or Node.js for dynamic recommendations.
+
+---
+
+## 🛠 Technologies Used
+- **Frontend:** HTML5, CSS3, JavaScript (ES6)  
+- **Deployment:** GitHub Pages (Free & Fast)  
+- **Assets:** TMDB movie posters  
+
+---
+
+## 💻 How to Run Locally
+1. Clone the repository:
+```bash
+git clone https://github.com/Noorahmedks-2103/noorahmed-2103-movie-recommender.git
