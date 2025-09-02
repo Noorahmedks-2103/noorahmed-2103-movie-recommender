@@ -3,22 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>MovieFlix 🎬</title>
-    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>MovieFlix 🎬</h1>
+    <header class="hero">
+        <h1>🎬 MovieFlix</h1>
+        <p>Discover movies you’ll love!</p>
         <button id="toggleTheme">Toggle Dark/Light</button>
     </header>
 
     <section class="search-section">
-        <input type="text" id="searchInput" placeholder="Search for movies...">
+        <input type="text" id="movie-input" placeholder="Enter a movie you like" autocomplete="off">
+        <ul id="suggestions"></ul>
     </section>
 
-    <section class="movies-grid" id="moviesGrid">
-        <!-- Movies will load here dynamically -->
+    <section class="recommendations">
+        <ul id="movie-grid" class="movie-grid"></ul>
     </section>
 
-    <script src="static/script.js"></script>
+    <script src="movies.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
