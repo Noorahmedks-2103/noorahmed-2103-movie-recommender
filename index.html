@@ -14,16 +14,12 @@
   </header>
 
   <section class="search-section">
-    <form id="searchForm" autocomplete="off">
-      <input type="text" id="movieInput" placeholder="Enter a movie you like" required>
-      <button type="submit">Get Recommendations</button>
-    </form>
-    <ul id="suggestions" class="suggestions-list"></ul>
+    <input type="text" id="searchInput" placeholder="Search movies...">
   </section>
 
   <section class="recommendations">
-    <h2 id="recommendTitle">Recommended Movies:</h2>
-    <ul id="movieGrid" class="movie-grid"></ul>
+    <h2>Recommended Movies:</h2>
+    <div id="moviesGrid" class="movie-grid"></div>
   </section>
 
   <script src="movies.js"></script>
