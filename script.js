@@ -1,59 +1,45 @@
-const movieInput = document.getElementById('movieInput');
-const searchForm = document.getElementById('searchForm');
-const movieGrid = document.getElementById('movieGrid');
-const recommendTitle = document.getElementById('recommendTitle');
-const suggestionsList = document.getElementById('suggestions');
-const toggleBtn = document.getElementById('toggleTheme');
+const movies = [
+  {title: "The Shawshank Redemption", poster: "https://image.tmdb.org/t/p/w500/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg", rating: 9.3, review: "A masterpiece about hope and friendship."},
+  {title: "The Godfather", poster: "https://image.tmdb.org/t/p/w500/eEslKSwcqmiNS6va24Pbxf2UKmJ.jpg", rating: 9.2, review: "Iconic mafia saga with stellar performances."},
+  {title: "The Dark Knight", poster: "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg", rating: 9.0, review: "Dark, thrilling, Heath Ledger is unforgettable."},
+  {title: "Pulp Fiction", poster: "https://image.tmdb.org/t/p/w500/dM2w364MScsjFf8pfMbaWUcWrR.jpg", rating: 8.9, review: "Quentin Tarantino's crime classic."},
+  {title: "Inception", poster: "https://image.tmdb.org/t/p/w500/9gk7adHYeDvHkCSEqAvQNLV5Uge.jpg", rating: 8.8, review: "Mind-bending thriller with stunning visuals."},
+  {title: "Forrest Gump", poster: "https://image.tmdb.org/t/p/w500/saHP97rTPS5eLmrLQEcANmKrsFl.jpg", rating: 8.8, review: "Heartwarming journey through history and life."},
+  {title: "Fight Club", poster: "https://image.tmdb.org/t/p/w500/bptfVGEQuv6vDTIMVCHjJ9Dz8PX.jpg", rating: 8.8, review: "Psychological chaos with style."},
+  {title: "The Matrix", poster: "https://image.tmdb.org/t/p/w500/aoiiG0WfL4r3cU7l4h0v3KJQpGy.jpg", rating: 8.7, review: "Groundbreaking sci-fi action."},
+  {title: "The Empire Strikes Back", poster: "https://image.tmdb.org/t/p/w500/7BuH8itoSrLExs2YZSsM01Qk2no.jpg", rating: 8.7, review: "Epic space opera continues."},
+  {title: "The Godfather: Part II", poster: "https://image.tmdb.org/t/p/w500/amvmeQWheahG3StKwIE1f7jRnkZ.jpg", rating: 9.0, review: "Mafia legend continues."},
+  // Add more up to 50 movies in the same format
+];
+
+// Render movies
+const moviesGrid = document.getElementById("moviesGrid");
+
+function renderMovies(list) {
+  moviesGrid.innerHTML = "";
+  list.forEach(movie => {
+    const card = document.createElement("div");
+    card.className = "movie-card";
+    card.innerHTML = `
+      <img src="${movie.poster}" alt="${movie.title}">
+      <h3>${movie.title}</h3>
+      <p>⭐ ${movie.rating}</p>
+      <p>${movie.review}</p>
+    `;
+    moviesGrid.appendChild(card);
+  });
+}
+
+renderMovies(movies);
 
 // Dark/Light toggle
-toggleBtn.addEventListener('click', () => {
-  document.body.classList.toggle('light');
+document.getElementById("toggleTheme").addEventListener("click", () => {
+  document.body.classList.toggle("light");
 });
 
-// Show suggestions while typing
-movieInput.addEventListener('input', () => {
-  const query = movieInput.value.toLowerCase();
-  suggestionsList.innerHTML = '';
-  if(query) {
-    const matched = movies.filter(m => m.title.toLowerCase().includes(query));
-    matched.forEach(m => {
-      const li = document.createElement('li');
-      li.textContent = m.title;
-      li.addEventListener('click', () => {
-        movieInput.value = m.title;
-        suggestionsList.innerHTML = '';
-      });
-      suggestionsList.appendChild(li);
-    });
-  }
-});
-
-// Handle search & recommend
-searchForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const query = movieInput.value.toLowerCase();
-  const selectedMovie = movies.find(m => m.title.toLowerCase() === query);
-
-  if(!selectedMovie) {
-    alert('Movie not found!');
-    return;
-  }
-
-  recommendTitle.textContent = Because you liked "${selectedMovie.title}", you might also like:;
-  movieGrid.innerHTML = '';
-
-  // Recommend based on first letter similarity
-  const recommendations = movies.filter(m => m.title !== selectedMovie.title && m.title[0] === selectedMovie.title[0]);
-
-  recommendations.forEach(m => {
-    const card = document.createElement('li');
-    card.className = 'movie-card';
-    card.innerHTML = `
-      <img src="${m.poster}" alt="${m.title}">
-      <h3>${m.title}</h3>
-      <p>⭐ ${m.rating}</p>
-      <p>${m.review}</p>
-    `;
-    movieGrid.appendChild(card);
-  });
+// Simple search
+document.getElementById("searchInput").addEventListener("input", (e) => {
+  const searchTerm = e.target.value.toLowerCase();
+  const filtered = movies.filter(m => m.title.toLowerCase().includes(searchTerm));
+  renderMovies(filtered);
 });
