@@ -26,11 +26,14 @@ button {
   padding: 0.5rem 1rem;
   margin-top: 1rem;
   cursor: pointer;
+  border: none;
+  border-radius: 5px;
 }
 
 .search-section {
   text-align: center;
   margin: 2rem 0;
+  position: relative;
 }
 
 #searchInput {
@@ -39,6 +42,44 @@ button {
   font-size: 1rem;
   border-radius: 5px;
   border: none;
+}
+
+.suggestions-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 50%;
+  max-width: 500px;
+  margin: 0 auto;
+  position: absolute;
+  background-color: #2c2c2c;
+  border-radius: 0 0 5px 5px;
+  overflow: hidden;
+  display: none;
+  z-index: 10;
+}
+
+body.light .suggestions-list {
+  background-color: #eee;
+  color: #121212;
+}
+
+.suggestions-list li {
+  padding: 0.5rem;
+  cursor: pointer;
+  border-bottom: 1px solid #444;
+}
+
+body.light .suggestions-list li {
+  border-bottom: 1px solid #ccc;
+}
+
+.suggestions-list li:hover {
+  background-color: #555;
+}
+
+body.light .suggestions-list li:hover {
+  background-color: #ccc;
 }
 
 .movie-grid {
